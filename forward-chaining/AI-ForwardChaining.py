@@ -14,17 +14,17 @@ class agePrediction:
 
     def rules(self):
         if self.rings >= 13:
+            print("1")
             self.ringAge = "old"
-            if self.length >= 0.6 and self.weight >= 0.5:
-                self.physicalAge = "old"
+            self.physRules()
         elif self.rings >= 6:
+            print("2")
             self.ringAge = "adult"
-            if self.length >= 0.4 and self.weight >= 0.3:
-                self.physicalAge = "adult"
+            self.physRules()
         elif self.rings < 6:
+            print("3")
             self.ringAge = "young"
-            if self.length < 0.4 and self.weight < 0.3:
-             self.physicalAge = "young"
+            self.physRules()
         else:
             print("err")
             self.combinedAge = "unknown"
@@ -32,6 +32,21 @@ class agePrediction:
         if self.ringAge != self.physicalAge:
             self.combinedAge = "unknown"
 
+    def physRules(self):
+        if self.length >= 0.6 and self.weight >= 0.5:
+            print("1.1")
+            self.physicalAge = "old"
+            self.combinedAge = "old"
+        elif self.length >= 0.4 and self.weight >= 0.3:
+            print("2.1")
+            self.physicalAge = "adult"
+            self.combinedAge = "adult"
+        elif self.length < 0.4 and self.weight < 0.3:
+            print("3.1")
+            self.physicalAge = "young"
+            self.combinedAge = "young"
+        else:
+            print("err")
 
     def predict(self):
         self.rules()
@@ -44,12 +59,12 @@ class agePrediction:
         return self.physicalAge
 
 
-abalone1 = agePrediction(0.5, 0.3, 10)
+abalone1 = agePrediction(length = 0.5, weight = 0.3, rings = 13)
 prediction = abalone1.predict()
 if prediction == "unknown":
-    print("physical and ring age classifications do not match\n")
-    print(f"ring predictions have the age at: {abalone1.getRing()}\n")
-    print(f"while physical attributes show it to be: {abalone1.getPhysical}\n")
+    print("physical and ring age classifications do not match")
+    print(f"ring predictions have the age at: {abalone1.getRing()}")
+    print(f"while physical attributes show it to be: {abalone1.getPhysical()}")
     print("true age is uncertain")
 else:
     print(f"age of abalone is: {prediction}")
