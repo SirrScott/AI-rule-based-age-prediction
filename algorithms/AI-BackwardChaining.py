@@ -33,7 +33,13 @@ class agePrediction:
         else:
             return "unknown"
 
-
+currentAge = input("what is the age of the abalone: ")
+#get its weight, length, rings
 abalone1 = agePrediction(length = 0.5, weight = 0.8, rings = 10)
 age = abalone1.getAge()
-print(f"age is classified as: {age}")
+if currentAge == age:
+    print(f"age given by the algorithm is '{age}' which matches given age")
+elif currentAge != age:
+    print(f"age given doesn't match algorithms classification which was: {age} ")
+else:
+    print("err1")
