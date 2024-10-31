@@ -9,13 +9,10 @@ class agePrediction:
 
     def ringRules(self):
         if self.rings >= 16:
-            print("1")
             self.ringAge = "old"
         elif self.rings >= 9:
-            print("2")
             self.ringAge = "adult"
         elif self.rings < 9:
-            print("3")
             self.ringAge = "young"
         else:
             print("err1")
@@ -23,13 +20,10 @@ class agePrediction:
 
     def physRules(self):
         if self.length >= 0.6 and self.weight >= 1.5:
-            print("1.1")
             self.physicalAge = "old"
         elif self.length >= 0.35 and self.weight >= 0.5:
-            print("2.1")
             self.physicalAge = "adult"
         elif self.length < 0.35 and self.weight < 0.5:
-            print("3.1")
             self.physicalAge = "young"
         else:
             print("err2")
@@ -37,7 +31,7 @@ class agePrediction:
 
     def getRing(self):
         return self.ringAge
-
+ 
     def getPhysical(self):
         return self.physicalAge
 
