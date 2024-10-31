@@ -37,7 +37,7 @@ class agePrediction:
 
     def getRing(self):
         return self.ringAge
- 
+
     def getPhysical(self):
         return self.physicalAge
 
